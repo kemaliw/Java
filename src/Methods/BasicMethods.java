@@ -9,6 +9,7 @@ public class BasicMethods {
         System.out.println(countDivisionBy3And5(14));
         System.out.println(thirdPow(4));
         System.out.println(sqrt(5));
+        System.out.println(canBuildTriangle(3,3,3));
     }
 
     private static String getMyAge() {
@@ -39,5 +40,24 @@ public class BasicMethods {
 
     private static double sqrt(double number) {
         return Math.sqrt(number);
+    }
+
+    private static boolean canBuildTriangle(double number1, double number2, double number3){
+        double longest = number1;
+        double side1 = number2;
+        double side2 = number3;
+
+        if (number2 > number1 && number2>number3){
+            longest = number2;
+            side1 = number1;
+            side2=number3;
+        }
+        if (number3 > number1 && number3 > number2) {
+            longest=number3;
+            side1=number1;
+            side2=number2;
+        }
+
+        return side1*side1 + side2*side2 == longest*longest;
     }
 }
