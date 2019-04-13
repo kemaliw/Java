@@ -2,15 +2,23 @@ package loops;
 
 public class Loops {
     public static void main(String[] args) {
-        displayFrom0ToN(5);
-        displayFrom0ToNWhile(7);
-        printCharPerLine(1234);
-        System.out.println(reverseString("pies22"));
-        printBinary(321);
-        System.out.println(isPalindrome("kotek"));
-        arrayOfIntegers(new int[]{1, 2, 3});
-        bubbleSort(new int[]{10, 5, 4, 7, 2, 1, 6, 3});
-        unitMatrix(5);
+//        displayFrom0ToN(5);
+//        displayFrom0ToNWhile(7);
+//        printCharPerLine(1234);
+//        System.out.println(reverseString("pies22"));
+//        printBinary(321);
+//        System.out.println(isPalindrome("kotek"));
+//        arrayOfIntegers(new int[]{1, 2, 3});
+//        bubbleSort(new int[]{10, 5, 4, 7, 2, 1, 6, 3});
+//        identityMatrix(5);
+
+        int[][] matrix = {
+                {1, 0, 0},
+                {0, 1, 0},
+                {0, 0, 1}
+        };
+        System.out.println(isIdentity(matrix));
+
     }
 
     private static void displayFrom0ToN(int n) {
@@ -44,7 +52,7 @@ public class Loops {
         return result;
     }
 
-    private static void printBinary(int number) {
+    public static void printBinary(int number) {
         String binaryNumber = "";
         String result = "";
         while (number > 0) {
@@ -96,7 +104,7 @@ public class Loops {
         array[index2] = tmp;
     }
 
-    public static void unitMatrix(int value) {
+    public static void identityMatrix(int value) {
         int row, col;
         for (row = 0; row < value; row++) {
             for (col = 0; col < value; col++) {
@@ -108,5 +116,23 @@ public class Loops {
             }
             System.out.println();
         }
+    }
+
+    public static boolean isIdentity(int[][] array) {
+        boolean flag = true;
+        int row, col;
+        for (row = 0; row < array.length; row++) {
+            for (col = 0; col < array[row].length; col++) {
+                if(row==col && array[row][col]!=1){
+                    flag=false;
+                    break;
+                }
+                if (row!=col && array[row][col]!=0){
+                    flag=false;
+                    break;
+                }
+            }
+        }
+       return flag;
     }
 }
